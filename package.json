@@ -40,5 +40,9 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "repository": {
+    "type": "url",
+    "url": "https://github.com/lucas-almeida026/hcju-cli"
   }
 }
