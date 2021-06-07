@@ -1,0 +1,6 @@
+card = new div in window
+card apply new style {
+  width: 90% min 280px max 600px
+  height: 400px
+  bg: rgba(0,0,0, .6)
+}

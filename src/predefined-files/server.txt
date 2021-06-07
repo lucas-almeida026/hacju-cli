@@ -1,0 +1,16 @@
+const express = require('express')
+const app = express()
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html')
+})
+
+app.get('/index.js', (req, res) => {
+  res.sendFile(__dirname + '/index.js')
+})
+
+app.get('/compiler/runtime.js', (req, res) => {
+  res.sendFile(__dirname + '/compiler/runtime.js')
+})
+
+app.listen(8000, () => console.log('listening at por 8000'))

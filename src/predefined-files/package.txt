@@ -1,0 +1,20 @@
+{
+  "name": "_appName_",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "p": "node compiler/parser.js index.hcju",
+    "g": "npm run p && node compiler/generator.js compiler/ast/index.ast"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moo": "^0.5.1",
+    "nearley": "^2.20.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

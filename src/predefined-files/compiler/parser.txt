@@ -1,0 +1,26 @@
+const nearley = require('nearley')
+const grammar = require('./hcju.js')
+const fs = require('fs')
+
+const main = async () => {
+  const filename = process.argv[2]
+  if(!filename){
+    console.log('a .hcju file must be provided')
+    return
+  }
+
+  const file = await fs.readFileSync(filename, 'utf8')
+  const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar))  
+  parser.feed(file)
+  
+  if(parser.results.length > 1){
+    throw new Error('Ambigous grammar, please report the issue')
+  }else if (parser.results.length == 1){    
+    const ast = parser.results[0]
+    const outputFilename = filename.replace('.hcju', '.ast')
+    await fs.writeFileSync('./compiler/ast/' + outputFilename, JSON.stringify(ast, null, " "))
+  }else{
+    throw new Error('Parser error, please report the issue')
+  }
+}
+main().catch(err => console.log(err.stack))
